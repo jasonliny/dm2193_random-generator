@@ -10,9 +10,13 @@ window.addEventListener('DOMContentLoaded', function(){
   outHeading = document.getElementById("outHead");
   outText = document.getElementById("outTxt");
 
-  exeButton.addEventListener("click", generate)
+  exeButton.addEventListener("click", function(){
+    let name = inputElem.value;
+    generate(name);
+  })
 });
-function generate() {
+
+function generate(name) {
     let species = ["Wraith", "Human", "Vampire", "Gnome", "Dwarf"];
     let adjectives = ["troubled", "fun", "average", "boring", "exciting", "sad"];
     let careers = ["governor", "doctor", "designer", "lawyer", "teacher"];
@@ -21,7 +25,6 @@ function generate() {
     let randAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     let randCarrer = careers[Math.floor(Math.random() * careers.length)];
 
-    let name = outBox.value;
 
     outText.innerText = name + " is a " + randSpecies + " that had a " + randAdjective + " childhood. They aspire to be a " + randCarrer + ".";
     restyle();
